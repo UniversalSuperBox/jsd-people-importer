@@ -26,7 +26,6 @@ import json
 import sys
 from collections import namedtuple
 from json.decoder import JSONDecodeError
-from multiprocessing.pool import ThreadPool
 from typing import List
 
 import ldap
@@ -279,8 +278,7 @@ def main():
 
     eprint("Users to create:", len(missing_jira_users))
 
-    with ThreadPool(1) as pool:
-        results = pool.map(create_jira_customer, missing_jira_users)
+    results = map(create_jira_customer, missing_jira_users)
 
     eprint("Done. Created users:", len([user for user in results if user]))
     eprint(
