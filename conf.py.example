@@ -1,0 +1,21 @@
+from os import environ
+
+# This configuration is documented in README.md
+
+LDAP_FILTER = environ["LDAP_FILTER"]
+
+LDAP_SEARCH_DN_LIST = [
+    environ["LDAP_SEARCH_DN"]
+]
+
+LDAP_BIND_URI = environ["LDAP_BIND_URI"]
+LDAP_INSECURE = environ.get("LDAP_INSECURE", False)
+
+LDAP_BIND_USERNAME = environ["LDAP_BIND_USERNAME"]
+LDAP_BIND_PASSWORD = environ["LDAP_BIND_PASSWORD"]
+
+JIRA_URL = environ["JIRA_URL"]
+JIRA_SERVICEDESK = environ["JIRA_SERVICEDESK"]
+
+JIRA_USERNAME = environ["JIRA_USERNAME"]
+JIRA_KEY = environ["JIRA_KEY"]
