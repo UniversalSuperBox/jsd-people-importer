@@ -238,7 +238,7 @@ def add_users_to_project(users: List[JiraUser], project: str):
         "accountIds": [user.accountId for user in users]
     })
 
-    r = requests.post(url, auth=JIRA_AUTH, headers=headers, data=body)
+    r = SESSION.post(url, auth=JIRA_AUTH, headers=headers, data=body)
 
     r.raise_for_status()
 
