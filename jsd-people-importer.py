@@ -227,7 +227,7 @@ def add_users_to_project(users: List[JiraUser], project: str):
     * JIRA_URL must be the full base URL of a Jira Service Desk server.
     """
 
-    url = "{base}/rest/servicedeskapi/servicedesk/DOIT/customer".format(base=JIRA_URL, id=JIRA_SERVICEDESK)
+    url = "{base}/rest/servicedeskapi/servicedesk/{id}/customer".format(base=JIRA_URL, id=JIRA_SERVICEDESK)
 
     headers = {
         "Content-Type": "application/json",
