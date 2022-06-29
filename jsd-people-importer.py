@@ -240,6 +240,11 @@ def add_users_to_project(users: List[JiraUser], project: str):
 
     r = SESSION.post(url, auth=JIRA_AUTH, headers=headers, data=body)
 
+    if r.status_code == 504:
+        eprint("Jira reported a 504 Gateway Timeout when adding users to project.")
+        eprint("Usually this is not a failure and the customers are added to the project anyway.")
+        return
+
     r.raise_for_status()
 
 
