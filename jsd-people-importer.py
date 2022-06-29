@@ -153,7 +153,7 @@ def create_jira_customer(user: User):
 
     try:
         new_user_request.raise_for_status()
-    except requests.exceptions.RequestException as e:
+    except (requests.exceptions.RequestException, requests.exceptions.HTTPError) as e:
         eprint("Failed to create user with email", user.email)
         eprint(e)
         eprint(new_user_request.text)
